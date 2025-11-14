@@ -1,4 +1,4 @@
-/* Réinitialisation de base */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,30 +6,30 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif; 
     line-height: 1.6;
-    background-color: #f4f4f4; 
+    background-color: #F8F8F8; 
 }
 
-/* ---------------------------------------------------- */
-/* STYLE DU HEADER (En-tête) */
-/* ---------------------------------------------------- */
+
+/* HEADER STYLING */
+
 
 header {
-    display: flex; /* Alignement en ligne */
-    justify-content: space-between; /* Espace le logo du menu */
+    display: flex;
+    justify-content: space-between;
     align-items: center; 
     padding: 1rem 20px;
-    background: #333; 
+    background: #1E3F66; 
     color: white;
 }
 
 nav ul {
-    list-style: none; /* Enlève les puces */
+    list-style: none; 
 }
 
 nav ul li {
-    display: inline; /* Met les liens côte à côte (Desktop) */
+    display: inline; 
     margin-left: 20px;
 }
 
@@ -38,9 +38,7 @@ nav a {
     text-decoration: none; 
 }
 
-/* ---------------------------------------------------- */
-/* STYLE DES MENUS (CSS Grid) */
-/* ---------------------------------------------------- */
+/* grid menu  */
 
 main {
     padding: 20px;
@@ -48,7 +46,6 @@ main {
 
 #liste-menus {
     display: grid; 
-    /* Desktop (Grand Écran) : 3 colonnes de taille égale */
     grid-template-columns: repeat(3, 1fr); 
     gap: 30px; 
 }
@@ -63,30 +60,30 @@ main {
 
 .prix {
     font-size: 1.5rem;
-    color: #007bff; /* Bleu simple pour commencer */
+    color: #54AE1C; 
     margin: 15px 0;
+    font-weight: bold; 
 }
 
-/* ---------------------------------------------------- */
-/* RESPONSIVE DESIGN (Critique AT1) */
-/* ---------------------------------------------------- */
+/* RESPONSIVE DESIGN */
+
 
 @media screen and (max-width: 992px) {
-    /* Tablette : 2 colonnes */
+
     #liste-menus {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media screen and (max-width: 576px) {
-    /* Téléphone : 1 colonne (empilage) */
+
     #liste-menus {
         grid-template-columns: 1fr;
     }
 
-    /* Le Menu de Navigation doit s'empiler aussi */
+    /* navigtion menu styling*/
     header {
-        flex-direction: column; /* Les éléments passent les uns en dessous des autres */
+        flex-direction: column; 
         text-align: center;
     }
     nav ul {
@@ -94,14 +91,13 @@ main {
         margin-top: 10px;
     }
     nav ul li {
-        display: block; /* Chaque lien prend toute la largeur */
-        margin: 5px 0;
+        display: block; 
     }
 }
 
-/* Footer (Pied de page) */
+/* footer styling*/
 footer {
-    background: #333;
+    background: #1E3F66; 
     color: white;
     text-align: center;
     padding: 1rem 0;
