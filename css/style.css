@@ -1,0 +1,109 @@
+/* Réinitialisation de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; 
+}
+
+/* ---------------------------------------------------- */
+/* STYLE DU HEADER (En-tête) */
+/* ---------------------------------------------------- */
+
+header {
+    display: flex; /* Alignement en ligne */
+    justify-content: space-between; /* Espace le logo du menu */
+    align-items: center; 
+    padding: 1rem 20px;
+    background: #333; 
+    color: white;
+}
+
+nav ul {
+    list-style: none; /* Enlève les puces */
+}
+
+nav ul li {
+    display: inline; /* Met les liens côte à côte (Desktop) */
+    margin-left: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none; 
+}
+
+/* ---------------------------------------------------- */
+/* STYLE DES MENUS (CSS Grid) */
+/* ---------------------------------------------------- */
+
+main {
+    padding: 20px;
+}
+
+#liste-menus {
+    display: grid; 
+    /* Desktop (Grand Écran) : 3 colonnes de taille égale */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+}
+
+.carte-menu {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    text-align: center;
+}
+
+.prix {
+    font-size: 1.5rem;
+    color: #007bff; /* Bleu simple pour commencer */
+    margin: 15px 0;
+}
+
+/* ---------------------------------------------------- */
+/* RESPONSIVE DESIGN (Critique AT1) */
+/* ---------------------------------------------------- */
+
+@media screen and (max-width: 992px) {
+    /* Tablette : 2 colonnes */
+    #liste-menus {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    /* Téléphone : 1 colonne (empilage) */
+    #liste-menus {
+        grid-template-columns: 1fr;
+    }
+
+    /* Le Menu de Navigation doit s'empiler aussi */
+    header {
+        flex-direction: column; /* Les éléments passent les uns en dessous des autres */
+        text-align: center;
+    }
+    nav ul {
+        padding: 0;
+        margin-top: 10px;
+    }
+    nav ul li {
+        display: block; /* Chaque lien prend toute la largeur */
+        margin: 5px 0;
+    }
+}
+
+/* Footer (Pied de page) */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 30px;
+}
