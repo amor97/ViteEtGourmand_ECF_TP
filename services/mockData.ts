@@ -1,5 +1,6 @@
 import { Menu, Order, Review, User, UserRole } from '../types';
 
+// Initial Mock Data (used as fallback or for other functions not yet connected to API)
 const INITIAL_MENUS: Menu[] = [
   {
     id: '1',
@@ -112,13 +113,25 @@ const INITIAL_ORDERS: Order[] = [
   }
 ];
 
-export const getMenus = (): Menu[] => {
-  const stored = localStorage.getItem('vg_menus');
-  if (!stored) {
-    localStorage.setItem('vg_menus', JSON.stringify(INITIAL_MENUS));
-    return INITIAL_MENUS;
+// Service Functions
+export const getMenus = async (): Promise<Menu[]> => {
+  try {
+    const response = await fetch('http://localhost:8888/api/get_menus.php');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch menus from API:", error);
+    // Fallback to local storage if API fails or if there's no network
+    const stored = localStorage.getItem('vg_menus');
+    if (!stored) {
+      localStorage.setItem('vg_menus', JSON.stringify(INITIAL_MENUS));
+      return INITIAL_MENUS;
+    }
+    return JSON.parse(stored);
   }
-  return JSON.parse(stored);
 };
 
 export const getReviews = (): Review[] => {
